@@ -9,3 +9,21 @@ pip install -r requirements.txt
 
 # 4. Download the actual browsers required by Playwright
 playwright install
+
+
+==================================================================
+# 1. Move the hidden .git directory up to the parent folder
+Move-Item .git ..\
+
+# 2. Move your .gitignore file up to the parent folder
+Move-Item .gitignore ..\
+
+# 3. Jump out of the 'playwright' subfolder into the main 'PytestPython' directory
+cd ..
+
+# 4. Open the moved .gitignore file and make sure it targets your virtual environment
+# (If your .venv is in this folder, this line guarantees it remains untracked)
+echo ".venv/" >> .gitignore
+
+# 5. Tell Git to re-scan the entire new root area
+git add .
