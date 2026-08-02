@@ -27,3 +27,7 @@ echo ".venv/" >> .gitignore
 
 # 5. Tell Git to re-scan the entire new root area
 git add .
+
+git commit -m "Move Git root up to parent project directory and update gitignore"
+
+git push -u origin main
