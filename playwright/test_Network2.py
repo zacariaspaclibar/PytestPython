@@ -28,7 +28,7 @@ def test_Network2(page:Page):
     print('Order Summary page')
 
 
-def test_session_strorage(playwright:Playwright):
+def test_session_storage(playwright:Playwright):
     api_utils = APIUtils()
     getToken = api_utils.getToken(playwright)
     browser = playwright.chromium.launch(headless=False)

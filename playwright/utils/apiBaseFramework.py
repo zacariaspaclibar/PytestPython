@@ -1,23 +1,25 @@
 from playwright.sync_api import Playwright
 
 ordersPayLoad = {"orders":[{"country":"Philippines","productOrderedId":"6960eae1c941646b7a8b3ed3"}]}
-getTokenPayload = {"userEmail":"zacpac@gmail.com","userPassword":"P@ssw0rd123!"}
+# getTokenPayload = {"userEmail":utils.credentials.USERNAME,"userPassword":utils.credentials.PASSWORD}
 
 class APIUtils:
     # create a token -> calling the api endpoint login to generate a token
-    def getToken(self,playwright:Playwright):
+    def getToken(self,playwright:Playwright,user_credentials):
+        user_Email  = user_credentials["userEmail"]
+        user_Password = user_credentials["userPassword"]
+
         api_request_context = playwright.request.new_context(base_url='https://rahulshettyacademy.com')
         response = api_request_context.post(url='api/ecom/auth/login',
-                                 data= getTokenPayload
+                                 data= {"userEmail": user_Email,"userPassword":user_Password}
                                             )
         assert response.ok
         responseBody = response.json()
         return responseBody['token']
 
     # this function is for creating an order using the API endpoint - orderCreate
-    def createOrder(self,playwright:Playwright):
-        # token = self.getToken(playwright,user_credentials)
-        token = self.getToken(playwright)
+    def createOrder(self,playwright:Playwright,user_credentials):
+        token = self.getToken(playwright,user_credentials)
         api_request_context = playwright.request.new_context(base_url='https://rahulshettyacademy.com')
         response = api_request_context.post(url='api/ecom/order/create-order',
                                  data=ordersPayLoad,
