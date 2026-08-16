@@ -1,5 +1,5 @@
 import json
-
+# pytest --browser_name chromium -m smoke -n 3 --tracing on --html=report.html
 import pytest
 from playwright.sync_api import Playwright, expect
 
@@ -8,7 +8,7 @@ from utils.apiBaseFramework import APIUtils
 from pageObjects.loginPage import LoginPage
 
 # create JSON file (contain the data) -> util (convert JSON to python obj) -> access into test
-with open('playwright/data/credentials.json') as json_file:
+with open('data/credentials.json') as json_file:
     credentials = json.load(json_file)
     user_credential_list = credentials['user_credentials']
 

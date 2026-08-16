@@ -1,2 +1,8 @@
 USERNAME = 'zacpac@gmail.com'
 PASSWORD = 'P@ssw0rd123!'
+JENKINS_PASSWORD_LINUX = '40f64ce9cc0c4182941f2319b22d79b9'
+JENKINS_USERNAME_LOCAL = 'zpaclibar'
+JENKINS_PASSWORD_LOCAL = 'P@ssw0rd123!'
+JENKINS_FULLNAME_LOCAL = 'Zac Pac'
+JENKINS_EMAIL_LOCAL = 'zpaclibar@consoleconnect.com'
+JENKINS_URL_LOCAL = 'http://localhost:8080/'
